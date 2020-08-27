@@ -20,10 +20,10 @@ print("")
 #alpha = list(d.compare(file1,file2))
 sys.stdout.writelines(alpha)
 
-m = difflib.SequenceMatcher(None, file1, file2)
+k = difflib.SequenceMatcher(None, file1, file2)
 print("")
-print(m.ratio())
+print(k.ratio())
 
-m = difflib.SequenceMatcher(lambda x: x == " ", file1, file2)
+m = difflib.SequenceMatcher(lambda x: x ==" ", file1, file2)
 print("")
 print(m.ratio())
