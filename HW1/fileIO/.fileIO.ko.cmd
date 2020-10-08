@@ -1,0 +1,1 @@
+cmd_/home/user/Github/Embedded_System/HW1/fileIO/fileIO.ko := ld -r -m elf_x86_64  -z max-page-size=0x200000  --build-id  -T ./scripts/module-common.lds -o /home/user/Github/Embedded_System/HW1/fileIO/fileIO.ko /home/user/Github/Embedded_System/HW1/fileIO/fileIO.o /home/user/Github/Embedded_System/HW1/fileIO/fileIO.mod.o;  true
