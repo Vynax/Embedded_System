@@ -16,12 +16,11 @@ static int fileIO_init(void)
     char buf[384] = {0};
     char reversebuf[384] = {0};
     mm_segment_t fs;
-    loff_t pos = 0;
+    //loff_t pos = 0;
     int i, j;
-    printk(KERN_INFO "fileIO start5\n");
 
     printk(KERN_INFO "fileIO is initialized");
-    f = filp_open("/home/user/Github/Embedded_System/HW1/fileIO/input.txt", O_RDONLY, 0);
+    f = filp_open("input.txt", O_RDONLY, 0);
     foutput = filp_open("output.txt", O_WRONLY | O_CREAT, 0644);
     printk(KERN_INFO "file open OK");
     if (f == NULL)
@@ -34,11 +33,9 @@ static int fileIO_init(void)
         // Set segment descriptor associated to kernel space
         set_fs(KERNEL_DS);
         printk(KERN_INFO "set_fs(KERNEL_DS) OK");
+
         // Read the file
-
-        // f->f_op->read(f, buf, 128, &f->f_pos);
-
-        while (kernel_read(f, buf, 384, &pos))
+        while (kernel_read(f, buf, 384, &f->f_pos))
         {
             printk(KERN_INFO "buf:%s\n", buf);
             // for (i = 0; i < (sizeof buf) / sizeof buf[0]; i++)
@@ -56,18 +53,12 @@ static int fileIO_init(void)
         printk(KERN_INFO "strlen reversebuf:%ld\n", strlen(reversebuf));
         printk(KERN_INFO "reversebuf:%s\n", reversebuf);
         kernel_write(foutput, reversebuf, strlen(reversebuf), &foutput->f_pos);
-        // for (i = 0; i < strlen(reversebuf); i++)
-        // {
-        //     printk(KERN_INFO "hi:%d\n", i);
-        //     printk(KERN_INFO "reversebuf:%c\n", reversebuf[i]);
-        //     printk(KERN_INFO "hi_why:%d\n", i);
-        // }
 
         //printk(KERN_INFO "f->f_op->read OK");
 
         // Restore segment descriptor
         set_fs(fs);
-        printk(KERN_INFO "set_fs(fs) OK");
+        //printk(KERN_INFO "set_fs(fs) OK");
         // See what we read from file
         //printk(KERN_INFO "buf:%s\n", buf);
     }
