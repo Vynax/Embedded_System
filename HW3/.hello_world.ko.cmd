@@ -1,0 +1,1 @@
+cmd_/home/user/Documents/ES/Embedded_System/HW3/hello_world.ko := ld -r -m elf_x86_64  -z max-page-size=0x200000  --build-id  -T ./scripts/module-common.lds -o /home/user/Documents/ES/Embedded_System/HW3/hello_world.ko /home/user/Documents/ES/Embedded_System/HW3/hello_world.o /home/user/Documents/ES/Embedded_System/HW3/hello_world.mod.o;  true

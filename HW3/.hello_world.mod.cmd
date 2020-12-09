@@ -1,0 +1,1 @@
+cmd_/home/user/Documents/ES/Embedded_System/HW3/hello_world.mod := { echo  /home/user/Documents/ES/Embedded_System/HW3/hello_world.o; echo; } > /home/user/Documents/ES/Embedded_System/HW3/hello_world.mod

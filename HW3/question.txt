@@ -1,0 +1,10 @@
+
+
+
+
+if GPIOLIB
+
+config HELLO_WORLD_MODULE
+    tristate "Hello world module"
+    help
+        Select this configuration to enable Hello world module.
